@@ -1,0 +1,299 @@
+@charset "utf-8";
+
+/*** 
+ General Setting 
+***/
+body{
+    background: #fff;
+    color: #464646;
+    min-width: 1100px;
+    font-family: "メイリオ", Meiryo, "ヒラギノ角ゴ ProN W3", "Hiragino kaku Gothic ProN", sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    vertical-align: top; /* 画像下の余白をなくす */
+}
+
+.wrapper1100{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.wrapper800{
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.flex-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.bg-blue{
+    background: #4B69C1;
+}
+
+.bg-pink{
+    background: #DE5B83;
+}
+
+.bg-green{
+    background: #61C163;
+}
+
+.bg-gray{
+    background: #E7E7E7;
+}
+
+.bg-black{
+    background: #222222;
+}
+
+/* PC時とSP時で画像を切り替え */
+.img-select img:nth-of-type(1){
+    display:inline;     /* PC用画像：表示 */
+}
+.img-select img:nth-of-type(2){
+    display:none;       /* SP用画像：非表示 */
+}
+
+/*** 
+ header
+***/
+#header{
+    margin: 27px auto;
+    padding:0 35px;
+    align-items: center;
+}
+
+#header nav ul{
+    width: 453px; /* ナビゲーションメニューの横幅は固定とする */
+}
+
+#header nav li a{
+    color: #464646;
+    font-size: 0.875rem;
+    font-family: "KozGoPr6N-Regular";
+}
+
+#header li a:hover{
+    color: #aaaaaa;
+}
+
+.humburger{
+    display: none;  /* ハンバーガーメニューはレンダリングしない（PC時）*/
+}
+
+/***
+ mainvisual
+***/
+#mainvisual{
+    position: relative;
+    margin: 0 auto 60px;
+    overflow: hidden;   /* jQueryのslick()でできる右余白を消す */
+}
+
+#mainvisual img{
+    width: 100%;
+    height: 613px;
+    object-fit: cover;
+}
+
+#mainvisual .chachcopy-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-51.32%);
+    width: 800px;
+    padding: 32px 0 25px;
+    background: rgba(255,255,255,0.8);
+    color: #000;
+}
+
+#mainvisual .chachcopy-en{
+    font-size: 2.5rem;
+    letter-spacing: 0.016em;
+    margin: 0 70px 30px 76px;
+}
+
+#mainvisual .chachcopy-jp{
+    font-size: 2rem;
+    letter-spacing: 0.077em;
+    margin-left:83px;
+}
+
+/*** 
+ appeal
+***/
+.section-title{
+    font-size: 2.5rem;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 67px;
+}
+
+.appeal-content{
+    margin-bottom: 74px;
+}
+
+.appeal-content .col3{
+    width: 31.82%;
+    color: #fff;
+}
+
+.appeal-content .col3 img{
+    width: 100%;
+    height: auto;
+}
+
+.appeal-content .content-title{
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 33px auto 20px;
+}
+
+.appeal-content .message{
+    width: 85.2%;
+    font-size: 1rem;
+    line-height: 1.5em;
+    margin-left: 6.57%;
+    margin-bottom:34px;
+}
+
+/***
+ customers voice
+***/
+.voice1{
+    flex-direction: row-reverse;/* お客様の声1の画像とテキストの並びを入れ替える */
+}
+
+.customer-img{
+    width: 24.375%;
+    height: auto;
+    border-radius:50%;
+    margin: 52.5px 3.5%;
+}
+
+.voice-text{
+    width: 67.5%;
+    color: #fff;
+    font-family: "KozGoPr6N-Regular";
+}
+
+.voice-headline{
+    font-size: 1.75rem;
+    margin: 80px 0 16px;
+}
+
+.voice-message{
+    font-size:0.875rem;
+    line-height: 1.714em;
+}
+
+/***
+ feature
+***/
+.feature{
+    position: relative;
+    overflow: hidden;   /* imgのはみ出した部分を消す */
+}
+
+.feature img{
+    width: 103%;
+    height: 611px;
+    object-fit: cover;
+    object-position: 50% 0%; /* 画像の表示範囲を指定 */   
+}
+
+.feature .col2row2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    gap: 30px;
+    min-width: 800px;
+}
+
+.feature-box{
+    width: 47.5%;
+    color: #010101;
+    font-family: "KozGoPr6N-Regular";
+    border-radius: 10px;
+}
+
+.feature-headline{
+    margin: 28px 0;
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+.feature-message{
+    margin: 0 9.22% 20px 7.632%;
+    font-size: 1.5rem;
+}
+
+/***
+ contact
+***/
+.contact{
+    padding:54px 0 76px;
+}
+
+.contact-infomation{
+    font-size: 1.875rem;
+    line-height: 1.25em;
+    margin-bottom: 63px;    
+}
+
+.btn{
+    display: block; 
+    font-size: 2.125rem;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 0.047em;
+    padding: 27px 0 33px;
+    border-radius: 13px;
+}
+
+.btn:hover{
+    background:#ff98b7;
+    transition: background-color .1s linear;
+}
+
+/***
+ footer
+***/
+.link-box{
+    padding: 33px 0 52px;
+}
+
+.list-title{
+    font-size: 1rem;
+    color: #EEEEEE;
+    margin-bottom: 13px;
+}
+
+.link-list{
+    font-size: 0.75rem;
+    line-height: 1.8em;
+}
+
+.link-list li a{
+    color: #CCCCCC;
+}
+
+.link-list li a:hover{
+    color: #ffffff;
+}
+
+.copyright{
+    font-size: 0.875rem;
+    color: #fff;
+    text-align: center;
+    border-top: solid 1px #EEEEEE;
+    padding: 29px 0;
+}

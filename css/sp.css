@@ -1,0 +1,272 @@
+@charset "utf-8";
+
+@media screen and (max-width:768px){
+    /***
+    General Setting 
+    ***/
+    body{
+        min-width: 0;
+    }
+
+    br{
+        display: none; /* SP時は<br>を無効化 */
+    }
+
+    /* PC時とSP時で画像を切り替え */
+    .img-select img:nth-of-type(1){
+        display:none;     /* PC用画像：非表示 */
+    }
+    .img-select img:nth-of-type(2){
+        display:inline;   /* SP用画像：表示 */
+    }
+
+    /***
+    ハンバーガーメニュー
+    ***/
+    .humburger {
+        position: fixed;    /* ハンバーガーメニューを固定で表示 */
+        z-index: 100;       /* ハンバーガーメニューを前面に表示 */
+        top: 35px;          /* ハンバーガーメニューの位置 */
+        right: 40px;        
+        width: 45px;
+        height: 38px;
+        cursor: pointer;    /* カーソルの形をポインタにする */
+    }
+    
+    /*ハンバーガーメニューの線のデザイン */
+    .humburger span {
+        position: absolute; /* 基準(親要素)からの絶対位置指定 */
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background-color: #000;
+        border-radius: 4px; /* 角丸 */
+    }
+
+    .humburger span:nth-of-type(1) { /* 1本目の線 */
+        top: 0;
+    }
+
+    .humburger span:nth-of-type(2) { /* 2本目の線 */
+        top: 16px;
+    }
+
+    .humburger span:nth-of-type(3) { /* 3本目の線 */
+        bottom: 0;
+    }
+
+    /* ハンバーガーメニュー activeクラス有効時のデザイン */
+    .humburger.active span{
+        background-color: #fff;
+    }
+
+    .humburger.active span:nth-of-type(1) { /* 1本目の線 */
+        transform: translateY(16px) rotate(-45deg); /* 下に16px移動、反時計回りに45度回転 */
+    }  
+    
+    .humburger.active span:nth-of-type(2) { /* 2本目の線 */
+        left: 50%;  /* 位置を左に50％移動 */
+        opacity: 0; /* 透明にする */
+        animation: humburger-bar2 .8s forwards; /* 0.8秒のアニメーション&最後のキーフレームを保持 */
+    }
+    @keyframes humburger-bar2 {
+        100%{   /* 終了状態(開始状態は省略→要素の既存のスタイルが開始状態) */
+            height: 0;        /* 高さを0にする */
+        }
+    }
+
+    .humburger.active span:nth-of-type(3) { /* 3本目の線 */
+        transform: translateY(-16px) rotate(45deg) /* 上に16px移動、時計回りに45度回転 */ 
+    }
+
+    .humburger, .humburger span {
+        display: inline-block;
+        transition: all .5s;    /* 変化時間0.5s */
+        box-sizing: border-box;
+    }
+
+    /* ハンバーガーメニューをクリックしたときのナビゲーションメニューのデザイン */
+    #header nav {
+        position: fixed;    /* ナビゲーションメニューを固定で表示 */
+        z-index: 10;        /* ナビゲーションメニューを前面に表示(.Humburger>spanよりは背面) */
+        top: 0;             /* 画面一杯に表示 */
+        bottom: 0;          /* ↑            */
+        right: 0;           /* ↑            */
+        left: 0;            /* ↑            */
+        visibility: hidden; /* 初期状態は不可視＆クリック不可能 */
+        opacity: 0;         /* 初期状態は透明 */
+        transition: 0.5s;   /* 変化時間0.5s */
+        background-color: rgba(0, 0, 0, 0.7);   /* 背景色 */
+        padding-top: 80px;
+        text-align: right;  /* メニュー全体(inline-block)を右寄せ */
+    }
+
+    #header{
+        display: block; /* flex解除 */
+        margin: 37px auto;
+    }
+
+    #header nav ul{
+        display: inline-block;  /* flex解除 */
+        width: 200px; 
+        margin-right: 20px;
+        text-align: left;
+    }
+
+    #header nav li a{
+        color: #fff;
+        font-size: 2rem;
+        line-height: 2;   /* 行間 font-size*2 */
+    }
+
+    #header li a:hover{
+        color: #fff;
+        border-bottom: solid 3px #fff;
+    }
+    
+    /***
+     mainvisual
+    ***/
+    #mainvisual{
+        margin: 0 auto 95px;
+    }
+
+    #mainvisual img{
+        height: 332px;
+    }
+
+    #mainvisual .chachcopy-box{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-51.32%);
+        width: 91.7%;
+        padding: 26.5px 0;
+        background: rgba(255,255,255,0.8);
+        color: #000;
+        text-align: center;
+    }
+
+    #mainvisual .chachcopy-en{
+        font-size: 1.25rem;
+        margin: 0 0 23px;
+    }
+    
+    #mainvisual .chachcopy-jp{
+        font-size: 1.125rem;
+        margin: 0;
+    }
+
+    /*** 
+    appeal
+    ***/
+    .section-title{
+        font-size: 1.25rem; 
+        margin-bottom: 27px;
+    }    
+
+    .appeal-content{
+        display: block;
+        margin-bottom: 51px;
+    }
+
+    .appeal-content .col3{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .appeal-content .content-title{
+        font-size: 1.25rem;
+        margin: 25px auto 17px;
+    }
+    .appeal-content .message{
+        width: 95.4%;
+        margin: 0 auto;
+        font-size: 0.875rem;
+        height: 52px;
+        padding-bottom: 22px;
+    }
+
+    /***
+     customers voice
+    ***/
+    .voice-box{
+        display: block;
+        text-align: center;
+    }
+
+    .customer-img{
+        width: 25.75%;
+        border-radius:50%;
+        margin: 55.2px auto 39px;
+    }
+
+    .voice-text{
+        width: 71.24%;
+        text-align: center;
+        margin: 0 auto;
+        padding-bottom: 37px;
+    }
+    .voice-headline{
+        margin: 0 auto 36px;
+    }
+
+    /***
+     feature
+    ***/
+    .feature img{
+        width: 100%;
+        height: 550px;
+        object-fit: contain;
+    }
+
+    .feature .col2row2{
+        min-width: 0;
+        width: 86%;
+        gap: 4.22vw;
+    }   
+
+    .feature-box{
+        width: 46.2%;
+    }
+
+    .feature-headline{
+        margin: 28px 0;
+        font-size: 1.125rem;
+    }
+
+    .feature-message{
+        margin: 0 11.67% 53px 10%;
+        font-size: 0.875rem;
+    }
+
+    /***
+    contact
+    ***/
+    .contact{
+        padding: 49px 29px 77px;
+    }
+
+    .contact-infomation{
+        font-size: 1.25rem;
+        line-height: 1.575;
+        margin-bottom: 46px;
+    }
+
+    /***
+    footer
+    ***/
+    .link-box{
+        justify-content: left;
+        padding: 42px 0 15px 5.6%;
+    }
+    .link-box .col4{
+        width: 43.7%;
+        margin-bottom: 30px;
+    }
+
+    .copyright{
+        padding: 25px 0 29px;
+    }
+
+} /* max-width:768px */
