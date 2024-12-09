@@ -1,0 +1,26 @@
+.my-marker-line{
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.5em;
+  text-decoration-color: rgb(255 228 0 / 0.7);
+  text-underline-offset: -0.2em;
+  text-decoration-skip-ink: none;
+  text-decoration-style: solid;
+}
+.my-marker-line-short {
+  text-decoration: underline rgb(255 228 0 / 0.7) 0.5em;
+  text-decoration-skip-ink: none;
+  text-underline-offset: -0.2em;
+}
+.my-marker-line-gradation{
+  display: inline;
+  background: linear-gradient(to right, rgb(192 255 255 / 0.7), rgb(0 0 255 / 0.7)) no-repeat, transparent;
+  background-size: 100% 50%;
+  background-position: 0 100%;
+}
+.my-marker-line-stripe{
+  display: inline;
+  background: repeating-linear-gradient(to right, hotpink 0px, hotpink 20px, cyan 20px, lightcyan 40px) no-repeat, transparent;
+  background-size: 100% 20%;
+  background-position: 0 100%;
+}
+
