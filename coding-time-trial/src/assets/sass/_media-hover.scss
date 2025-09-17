@@ -1,0 +1,17 @@
+@use "sass:map";
+
+//メディア特性(hover)
+$hover-possibilities: (
+  'hover':'(hover: hover)', /* hover指定できるPCを想定したスタイル */
+  'none':'(hover: none)',  /* hoverが使えないタッチ端末を想定したスタイル */
+);
+
+
+//@media hover（デバイスのhover有無判定）用のmixin
+@mixin hs($hover-possibility) {
+  //map-get(マップ型変数, キー)で値を取得
+  @media #{map-get($hover-possibilities, $hover-possibility)} {
+    //この中をカスタムできる
+    @content;
+  }
+}

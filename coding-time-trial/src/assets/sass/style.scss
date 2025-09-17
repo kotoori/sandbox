@@ -1,0 +1,21 @@
+@use "sass:map";
+@use "breakpoints" as *;
+@use "media-hover" as *;
+@use "media-hover";
+@use "variables" as *;
+@use "mixin" as *;
+@use "functions" as *;
+@use "base";
+
+/*===============================
+共通クラス
+===============================*/
+.inner{
+	width: 100%;
+	max-width: calc($size-inner-width-pc + 30px * 2);
+	padding: 0 30px;
+	margin: 0 auto;
+	@include mq(md){
+		padding: 0 20px;
+	}
+}

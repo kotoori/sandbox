@@ -1,0 +1,53 @@
+@charset "UTF-8";
+html {
+  font-size: 100%;
+}
+
+body {
+  color: #111;
+  background: #FFF;
+  font-family: "Montserrat", "Noto Sans JP", sans-serif;
+  line-height: 1.7;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: top; /* img下の隙間を消す */
+}
+
+a, button, [role=tab] {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+address {
+  font-style: normal;
+}
+
+/* スクリーンリーダーオンリー */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/*===============================
+共通クラス
+===============================*/
+.inner {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 767px) {
+  .inner {
+    padding: 0 20px;
+  }
+}
