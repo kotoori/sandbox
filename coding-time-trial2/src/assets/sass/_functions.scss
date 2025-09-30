@@ -1,0 +1,102 @@
+@use "sass:math";
+@use "sass:map";
+
+// 数値のみを取り出す
+// 参照：https://css-tricks.com/snippets/sass/strip-unit-function/
+////////////////////////////////////////////////////////////
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return math.div($number, $number * 0 + 1);
+  }
+  @return $number;
+}
+
+//px -> vw
+////////////////////////////////////////////////////////////
+@function vw($px, $width: 375) {
+  @return math.div($px, $width) * 100vw;
+}
+
+// px -> vw (画面幅390px基準)
+////////////////////////////////////////////////////////////
+@function vws($size) {
+	@return math.div($size, 390) * 100vw;
+}
+
+// px -> vw (画面幅1440px基準)
+////////////////////////////////////////////////////////////
+@function vwl($size) {
+	@return math.div($size, 1440) * 100vw;
+}
+
+// px -> vw (画面幅1440px基準,1440px以上には拡大しない)
+////////////////////////////////////////////////////////////
+@function maxvwl($size) {
+  @if $size < 0 {
+    // マイナスの値が入力された場合
+    @return max((math.div($size, 1440) * 100vw), #{$size}px);
+  } @else {
+    // マイナスの値が入力されなかった場合
+    @return min((math.div($size, 1440) * 100vw), #{$size}px);
+  }
+}
+
+//px -> rem (1rem = 16px基準)
+////////////////////////////////////////////////////////////
+@function rem($px) {
+  @return math.div($px, 16) * 1rem;
+}
+
+//px -> min(vw, rem) vw変換とrem変換のどちらか小さい方を返す
+////////////////////////////////////////////////////////////
+@function min-rem($px, $viewport-width: 1440px) {
+  $coefficient: math.div(100, $viewport-width);  // 定数係数を算出: 1 / $viewport-width
+  $vw-value: $px * $coefficient;  // vw の値を計算
+
+  @return min(#{$vw-value}vw, #{math.div($px, 16)}rem);  // min() を返す
+}
+
+//px -> clamp(min rem, rem + vw, max rem)
+////////////////////////////////////////////////////////////
+@function clamp-rem($min-size-px, $max-size-px, $min-width: 768, $max-width: 1440) {
+  // vw単位でのスケーリング係数を計算
+  $vw-coefficient: math.div(($max-size-px - $min-size-px), ($max-width - $min-width)) * 100;
+
+  // 基準点（base value）を計算
+  $base-size-px: $min-size-px - (math.div($vw-coefficient * $min-width, 100));
+
+  // ピクセル単位のフォントサイズをremに変換（1rem = 16px）
+  $min-size-rem: math.div($min-size-px, 16);
+  $max-size-rem: math.div($max-size-px, 16);
+  $base-size-rem: math.div($base-size-px, 16);
+
+  // clamp()関数で使用する値を生成
+  @if $base-size-px == 0 {
+    @return clamp(#{$min-size-rem}rem, #{$vw-coefficient}vw, #{$max-size-rem}rem);
+  } @else {
+    @return clamp(#{$min-size-rem}rem, #{$base-size-rem}rem + #{$vw-coefficient}vw, #{$max-size-rem}rem);
+  }
+}
+
+//px -> clamp(min px, px + vw, px rem)
+////////////////////////////////////////////////////////////
+@function clamp-px($min-size-px, $max-size-px, $min-width: 768, $max-width: 1440) {
+  // vw単位でのスケーリング係数を計算
+  $vw-coefficient: math.div(($max-size-px - $min-size-px), ($max-width - $min-width)) * 100;
+
+  // 基準点（base value）を計算
+  $base-size-px: $min-size-px - (math.div($vw-coefficient * $min-width, 100));
+
+  // clamp()関数で使用する値を生成
+  @if $base-size-px == 0 {
+    @return clamp(#{$min-size-px}px, #{$vw-coefficient}vw, #{$max-size-px}px);
+  } @else {
+    @return clamp(#{$min-size-px}px, #{$base-size-px}px + #{$vw-coefficient}vw, #{$max-size-px}px);
+  }
+}
+
+// AdobeXD letter-spacing -> em
+////////////////////////////////////////////////////////////
+@function ls($size) {
+  @return #{ math.div($size, 1000) }em;
+}
