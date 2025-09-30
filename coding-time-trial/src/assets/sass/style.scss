@@ -35,6 +35,12 @@
 	text-align: center;
 }
 
+.ib{
+	display: inline-block;
+}
+/*===============================
+card
+===============================*/
 .p-cards{
 	width: 100%;
 	margin-block-start: 80px;
@@ -43,13 +49,17 @@
 	gap: 80px 80px;
 	list-style: none;
 	padding: 0;
+	margin-inline: auto;
 }
 
+
 .p-card{
+	width: 100%;
 	border-radius: 30px;
 	background: #FFF;
 	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 	padding: 30px;
+	margin-inline: auto;
 }
 
 .p-card__title{
@@ -125,3 +135,121 @@
 		top: 0.8em;
 	}
 }
+
+/*===============================
+teachers
+===============================*/
+.p-teachers{
+
+}
+
+.p-teachers__main-img{
+	margin-block-start: 80px;
+	width: 100%;
+	@include mq(md){
+		margin-block-start: 50px;
+	}
+	img{
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+}
+
+.p-teachers__list{
+	margin-block-start: 80px;
+	@include mq(md){
+		margin-block-start: 50px;
+	}
+}
+
+.p-teachers__item{
+	display: flex;
+	column-gap: 7.894%;
+	background-color: #fff;
+	@include mq(md){
+		flex-direction: column;
+		width: 100%;
+		max-width: 480px;
+		margin-inline: auto;
+	}
+
+	&:not(:first-of-type){
+		margin-block-start: 100px;
+		@include mq(md){
+			margin-block-start: 50px;
+		}
+	}
+
+	&:nth-of-type(even){
+		flex-direction: row-reverse;
+		@include mq(md){
+			flex-direction: column;
+		}
+		.p-teachers-item__text-area{
+			padding: 28px 0 18px 50px;
+			@include mq(md){
+				padding: 28px 20px 18px 20px;
+			}
+		}
+	}
+}
+
+.p-teachers-item__img{
+	width: 43.86%;
+	flex-shrink: 0;
+	@include mq(md){
+		width: 100%;
+	}
+	img{
+		width: 100%;
+		height: 100%;
+		display: block;
+		object-fit: cover;
+	}
+}
+
+.p-teachers-item__text-area{
+	width: 100%;
+	padding: 28px 50px 18px 0;
+	@include mq(md){
+		padding: 28px 20px 18px 20px;
+	}
+}
+
+.p-teachers-item__tag{
+	display: block;
+	width: fit-content;
+	border-radius: 5px;
+	background: #C5B3D3;
+	color: #FFF;
+	font-family: $font-inter;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: normal;
+	padding: 10px;
+}
+
+.p-teachers-item__name{
+	display: block;
+	margin-block-start: 30px;
+	color: #000;
+	font-family: $font-inter;
+	font-size: 25px;
+	font-weight: 600;
+	line-height: normal;
+
+
+}
+
+.p-teachers-item__dest{
+	margin-block-start: 30px;
+	color: #000;
+	font-family: $font-inter;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.667;
+	letter-spacing: 0.72px;
+}
+

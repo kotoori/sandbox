@@ -102,6 +102,13 @@ address {
   text-align: center;
 }
 
+.ib {
+  display: inline-block;
+}
+
+/*===============================
+card
+===============================*/
 .p-cards {
   width: 100%;
   -webkit-margin-before: 80px;
@@ -111,14 +118,17 @@ address {
   gap: 80px 80px;
   list-style: none;
   padding: 0;
+  margin-inline: auto;
 }
 
 .p-card {
+  width: 100%;
   border-radius: 30px;
   background: #FFF;
   -webkit-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
           box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   padding: 30px;
+  margin-inline: auto;
 }
 
 .p-card__title {
@@ -207,4 +217,154 @@ address {
   position: absolute;
   left: 0;
   top: 0.8em;
+}
+
+/*===============================
+teachers
+===============================*/
+.p-teachers__main-img {
+  -webkit-margin-before: 80px;
+          margin-block-start: 80px;
+  width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .p-teachers__main-img {
+    -webkit-margin-before: 50px;
+            margin-block-start: 50px;
+  }
+}
+.p-teachers__main-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.p-teachers__list {
+  -webkit-margin-before: 80px;
+          margin-block-start: 80px;
+}
+@media screen and (max-width: 767px) {
+  .p-teachers__list {
+    -webkit-margin-before: 50px;
+            margin-block-start: 50px;
+  }
+}
+
+.p-teachers__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 7.894%;
+     -moz-column-gap: 7.894%;
+          column-gap: 7.894%;
+  background-color: #fff;
+}
+@media screen and (max-width: 767px) {
+  .p-teachers__item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+}
+.p-teachers__item:not(:first-of-type) {
+  -webkit-margin-before: 100px;
+          margin-block-start: 100px;
+}
+@media screen and (max-width: 767px) {
+  .p-teachers__item:not(:first-of-type) {
+    -webkit-margin-before: 50px;
+            margin-block-start: 50px;
+  }
+}
+.p-teachers__item:nth-of-type(even) {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+@media screen and (max-width: 767px) {
+  .p-teachers__item:nth-of-type(even) {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+.p-teachers__item:nth-of-type(even) .p-teachers-item__text-area {
+  padding: 28px 0 18px 50px;
+}
+@media screen and (max-width: 767px) {
+  .p-teachers__item:nth-of-type(even) .p-teachers-item__text-area {
+    padding: 28px 20px 18px 20px;
+  }
+}
+
+.p-teachers-item__img {
+  width: 43.86%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+@media screen and (max-width: 767px) {
+  .p-teachers-item__img {
+    width: 100%;
+  }
+}
+.p-teachers-item__img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.p-teachers-item__text-area {
+  width: 100%;
+  padding: 28px 50px 18px 0;
+}
+@media screen and (max-width: 767px) {
+  .p-teachers-item__text-area {
+    padding: 28px 20px 18px 20px;
+  }
+}
+
+.p-teachers-item__tag {
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 5px;
+  background: #C5B3D3;
+  color: #FFF;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: normal;
+  padding: 10px;
+}
+
+.p-teachers-item__name {
+  display: block;
+  -webkit-margin-before: 30px;
+          margin-block-start: 30px;
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.p-teachers-item__dest {
+  -webkit-margin-before: 30px;
+          margin-block-start: 30px;
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.667;
+  letter-spacing: 0.72px;
 }
